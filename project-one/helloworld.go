@@ -10,14 +10,14 @@ func main() {
 	  var <nama-variabel> <tipe-data>
 	  var <nama-variabel> <tipe-data> = <nilai>
 	*/
-	var firstname string = "Bana"
+	var firstname = "Bana"
 	var lastname string
 	lastname = "Budhiana"
 	fmt.Printf("Hello %s %s \n", firstname, lastname)
 
 	//deklarasi variable yg ditentukan oleh value nya - type inference
 	//Tanda := hanya digunakan sekali di awal pada saat deklarasi
-	var namapertama string = "Bana"
+	var namapertama = "Bana"
 	namaakhir := "Budhiana" //otomatis namaakhir bertipe string - type inference
 	fmt.Printf("Hello %s %s \n", namapertama, namaakhir)
 
@@ -28,7 +28,7 @@ func main() {
 	thirdWife = "andriani"
 	fmt.Printf("Wife %s %s %s\n", firstWife, secondWife, thirdWife)
 
-	var fourth, fifth, sixth string = "empat", "lima", "enam"
+	var fourth, fifth, sixth = "empat", "lima", "enam"
 	//ringkas
 	//seventh, eight, ninth := "tujuh", "delapan", "sembilan"
 	fmt.Printf("Angka %s %s %s\n", fourth, fifth, sixth)
@@ -66,7 +66,7 @@ func main() {
 	fmt.Printf("ini adalah float number : %.3f\n", decimalNumber)
 
 	//Tipe data bool
-	var exist bool = true
+	var exist = true
 	fmt.Printf("ini boolean: %t\n", exist)
 
 	//Tipe data yang bisa diisi dengan nill
@@ -92,7 +92,7 @@ func main() {
 
 	//perhitungan dan logika
 	var value = (((2+6)%3)*4 - 2) / 3
-	var isEqual = (value == 2)
+	var isEqual = value == 2
 	fmt.Printf("nilai %d (%t) \n", value, isEqual)
 
 	//kondisi, dalam if gak perlu kurung lagi
@@ -220,7 +220,7 @@ func main() {
 	fmt.Println("jumlah elemen \t:", len(numbers))
 
 	//Array Multidimensi
-	var numbers1 = [2][3]int{[3]int{3, 2, 3}, [3]int{3, 4, 5}}
+	var numbers1 = [2][3]int{{3, 2, 3}, {3, 4, 5}}
 	var numbers2 = [2][3]int{{3, 2, 3}, {3, 4, 5}}
 
 	fmt.Println("numbers1", numbers1)
@@ -249,5 +249,26 @@ func main() {
 	for _, fruit := range fruits4 {
 		fmt.Printf("nama buah : %s\n", fruit) //jadi tidak perlu lagi ada 'i'
 	}
+
+	//Deklarasi sekaligus alokasi data array juga bisa dilakukan lewat keyword make.
+	var fruits5 = make([]string, 2) //buat array string dengan jumlah elemen = 2
+	fruits5[0] = "apple"
+	fruits5[1] = "manggo"
+
+	fmt.Println(fruits5) // [apple manggo]
+
+	//SLICE
+	//Slice adalah reference elemen array
+	//Slice bisa dibuat, atau bisa juga dihasilkan dari manipulasi sebuah array ataupun slice lainnya.
+	//menjadikan perubahan data di tiap elemen slice akan berdampak pada slice lain yang memiliki alamat memori yang sama
+	var fruits6 = []string{"apple", "grape", "banana", "melon"} //ciri slice, tidak dituliskan jumlah elemen
+	fmt.Println(fruits6[0])                                     // "apple"
+
+	//perbedaan slice dan array bisa diketahui pada saat deklarasi variabel-nya,
+	//jika jumlah elemen tidak dituliskan, maka variabel tersebut adalah slice
+	var fruitsA = []string{"apple", "grape"}     // slice
+	var fruitsB = [2]string{"banana", "melon"}   // array
+	var fruitsC = [...]string{"papaya", "grape"} // array
+	fmt.Println(fruitsA, fruitsB, fruitsC)
 
 }
