@@ -6,7 +6,7 @@ func main() {
 	fmt.Println("Lebih jauh tentang Go")
 	fmt.Println("=====================")
 	//GO tidak mendukung OOP namun memiliki tipe data terstruktur disebut dengan Struct
-	//Struct : kumpulan definisia variabel(property) dan fungsi (method), dibungkus sebagai tipe data baru dengan nama tertentu
+	//Struct : kumpulan definisi variabel(property) dan fungsi (method), dibungkus sebagai tipe data baru dengan nama tertentu
 	//dari struct itu kita bisa buat variabel baru yang punya atribut sesuai skema struct.
 
 	//DEKLARASI
