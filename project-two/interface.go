@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
 )
 
 func main() {
@@ -41,6 +42,65 @@ func main() {
 	fmt.Println("luas      :", bangunRuang2.luas())
 	fmt.Println("keliling  :", bangunRuang2.keliling())
 	fmt.Println("volume    :", bangunRuang2.volume())
+
+	//TIPE DATA Interface Kosong (any)
+	//notasinya : interface{}
+	//Variabel bertipe ini akan dapat menampung segala tipe data, bahkan array,pointer,apapun. Disebut sebagai Dynamic Typing.
+	var secret interface{}
+
+	secret = "ethan hunt" //berupa string
+	fmt.Println(secret)   //ethan hunt
+
+	secret = []string{"apple", "manggo", "banana"} //berupa slice string
+	fmt.Println(secret)                            //[apple manggo banana]
+
+	//Paling sering dalam bentuk map
+	var data map[string]interface{} //data bertipe map, dengan key tipe string dan value tipe interface{}
+	data = map[string]interface{}{"name": "bana  budhiana", "grade": 20, "breakfast": []string{"nasi", "susu", "telor"}}
+	fmt.Println(data["name"])
+
+	//tipe data any
+	//interface kosong bisa dituliskan dengan 'any'
+	var data2 map[string]any //interface{} bisa diganti any
+
+	data2 = map[string]any{
+		"name":      "ethan hunt",
+		"grade":     2,
+		"breakfast": []string{"apple", "manggo", "banana"},
+	}
+	fmt.Println(data2["grade"])
+
+	//Casting Variabel Interface Kosong
+	var secret2 interface{}
+	secret2 = 2                     //tipe data masih interface{}
+	var number = secret2.(int) * 10 //bentuk casting nya variable.(nama_type_to_casting)
+	fmt.Println(secret2, "multiplied by 10 is :", number)
+
+	secret2 = []string{"apple", "manggo", "banana"}     //ingat secret2 adalah bertipe data interface{}
+	var gruits = strings.Join(secret2.([]string), ", ") //maka harus di casting dengan ([]string) agar bisa dikasih operasi strings
+	fmt.Println(gruits, "is my favorite fruits")
+
+	//Kombinasi Slice, map, dan interface{}
+	//Tipe []map[string]interface{} adalah salah satu tipe yang paling sering digunakan
+	var person = []map[string]interface{}{ //slice dari tipe data map yang memiliki key bertipe string dan value bertipe interface{}
+		{"name": "Wick", "age": 23},
+		{"name": "Ethan", "age": 23},
+		{"name": "Bourne", "age": 22},
+	}
+	for _, each := range person {
+		fmt.Println(each["name"], "age is", each["age"])
+	}
+
+	//contoh lain bahwa interface sangat berguna
+	var fruits = []interface{}{
+		map[string]interface{}{"name": "strawberry", "total": 10},
+		[]string{"manggo", "pineapple", "papaya"},
+		"orange",
+	}
+
+	for _, each := range fruits {
+		fmt.Println(each)
+	}
 }
 
 // Penerapan Interface
