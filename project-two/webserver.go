@@ -33,7 +33,7 @@ func main() {
 		}
 
 		//Fungsi template.ParseFiles() digunakan untuk parsing template, mengembalikan 2 data yaitu instance template-nya dan error (jika ada).
-		var t, err = template.ParseFiles("template.html")
+		var t, err = template.ParseFiles("project-two/template.html")
 		if err != nil {
 			fmt.Println(err.Error())
 			return
