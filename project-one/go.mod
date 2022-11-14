@@ -2,8 +2,9 @@ module project-one
 
 go 1.19
 
+require rsc.io/quote v1.5.2
+
 require (
-	github.com/klauspost/compress v1.15.12 // indirect
-	github.com/pierrec/lz4/v4 v4.1.17 // indirect
-	github.com/segmentio/kafka-go v0.4.36 // indirect
+	golang.org/x/text v0.3.7 // indirect
+	rsc.io/sampler v1.3.0 // indirect
 )

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"rsc.io/quote"
 	"strings"
 	"time"
 )
@@ -12,6 +13,7 @@ func main() {
 	//Penggunaan import fmt
 	fmt.Println("Hello World")
 	fmt.Println("Hello", "world!", "how", "are", "you")
+	fmt.Println(quote.Go())
 
 	/*
 	  var <nama-variabel> <tipe-data>
@@ -369,9 +371,9 @@ func main() {
 	//Kombinasi Slice & Map
 	//[]map[string]int, artinya slice yang tipe tiap elemen-nya adalah map[string]int
 	var chickens = []map[string]string{
-		map[string]string{"name": "chicken blue", "gender": "male"},
-		map[string]string{"name": "chicken red", "gender": "male"},
-		map[string]string{"name": "chicken yellow", "gender": "female"},
+		{"name": "chicken blue", "gender": "male"},
+		{"name": "chicken red", "gender": "male"},
+		{"name": "chicken yellow", "gender": "female"},
 	}
 
 	for _, chicken := range chickens {
@@ -536,8 +538,8 @@ func main() {
 	//Metode ini disebut dengan referencing
 	//c. Dan sebaliknya, nilai asli variabel pointer juga bisa diambil, dengan cara menambahkan tanda asterisk (*) tepat sebelum nama variabel.
 	//Metode ini disebut dengan dereferencing.
-	var numberA int = 4
-	var numberB *int = &numberA //numberB menampung alamat memory numberA
+	var numberA = 4
+	var numberB = &numberA //numberB menampung alamat memory numberA
 
 	fmt.Println("numberA (value)   :", numberA)  // 4
 	fmt.Println("numberA (address) :", &numberA) // 0xc00019c220 (alamat pointernya atau memori, pakai &)
@@ -547,8 +549,8 @@ func main() {
 
 	//Ketika salah satu variabel pointer di ubah nilainya, sedang ada variabel lain yang memiliki referensi memori yang sama,
 	//maka nilai variabel lain tersebut juga akan berubah
-	var numberC int = 4
-	var numberD *int = &numberA
+	var numberC = 4
+	var numberD = &numberA
 
 	fmt.Println("numberC (value)   :", numberC)
 	fmt.Println("numberC (address) :", &numberC)
@@ -624,7 +626,7 @@ func calculate2(d float64) (area float64, circumference float64) {
 
 // Fuction Variadic, isian parameter bisa dinamis jumlahnya yaitu ada '...'
 func calculate3(numbers ...int) float64 {
-	var total int = 0
+	var total = 0
 	for _, number := range numbers {
 		total += number
 	}
