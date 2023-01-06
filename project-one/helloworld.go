@@ -69,12 +69,15 @@ func main() {
 	//int = sama dengan int32 or int64 (tergantung nilai)
 	//rune = int32
 	var positiveNumber uint8 = 89
+	var negatifNumber = -1232229
 	fmt.Printf("bilangan positif: %d\n", positiveNumber)
+	fmt.Printf("bilangan negatif: %d\n", negatifNumber)
 
 	//Tipe data Numeric Decimal
 	//Template %f digunakan untuk memformat data numerik desimal menjadi string
 	var decimalNumber = 2.62
-	fmt.Printf("ini adalah float number : %.3f\n", decimalNumber) //.3 artinya adalah 3 angka belakang koma
+	fmt.Printf("ini adalah float number : %.3f\n", decimalNumber)   //.3 artinya adalah 3 angka belakang koma
+	fmt.Printf("ini outputnya 10 decimal : %.10f\n", decimalNumber) //default 6 decimal, tapi bisa di set 10 decimal
 
 	//Tipe data bool
 	var exist = true
