@@ -110,6 +110,25 @@ func main() {
 	for _, murid := range semuaMurid {
 		fmt.Printf("nama %v dan age %v - grade %v\n", murid.person.name, murid.person.age, murid.grade)
 	}
+
+	//Anonymous Struct dengan Var
+	//maknanya akan berbeda ketika type diganti dengan var, dengan var maka akan jadi anonymous struct yg disimpan dalam var murid2
+	var murid2 struct {
+		person
+		grade int
+	}
+	murid2.person = person{name: "Ani", age: 20}
+	murid2.grade = 2
+	fmt.Printf("Murid 2 : %v\n", murid2)
+
+	//deklarasi dengan langsung inisialisasi
+	var murid3 = struct {
+		person
+		grade int
+	}{
+		person: person{name: "Ani", age: 20}, grade: 3,
+	}
+	fmt.Printf("Murid 3 : %v\n", murid3)
 }
 
 type person struct {
